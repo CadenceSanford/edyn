@@ -42,9 +42,9 @@ void collide(const capsule_shape &shA, const sphere_shape &shB,
     point.normal_attachment = contact_normal_attachment::none;
 
     if (t > 0 && t < 1) {
-        point.featureA = {capsule_feature::side};
+        point.featureA.emplace(capsule_feature::side);
     } else {
-        point.featureA = {capsule_feature::hemisphere};
+        point.featureA.emplace(capsule_feature::hemisphere);
         point.featureA->index = t == 0 ? 0 : 1;
     }
 

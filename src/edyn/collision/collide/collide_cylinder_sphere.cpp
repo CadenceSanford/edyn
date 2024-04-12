@@ -44,7 +44,7 @@ void collide(const cylinder_shape &shA, const sphere_shape &shB,
         point.distance = dist - shA.radius - shB.radius;
         point.normal = normal;
         point.normal_attachment = contact_normal_attachment::none;
-        point.featureA = {cylinder_feature::side_edge};
+        point.featureA.emplace(cylinder_feature::side_edge);
         result.add_point(point);
         return;
     }

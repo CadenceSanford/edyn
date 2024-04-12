@@ -121,7 +121,7 @@ static void collide_capsule_triangle(
     point.normal = sep_axis;
     point.distance = distance;
     point.featureA = {featureA, feature_indexA};
-    point.featureB = {tri_feature};
+    point.featureB.emplace(tri_feature);
     point.featureB->index = get_triangle_mesh_feature_index(mesh, tri_idx, tri_feature, tri_feature_index);
 
     switch (tri_feature) {

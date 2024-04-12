@@ -93,7 +93,7 @@ void collide(const polyhedron_shape &shA, const capsule_shape &shB,
             contact_normal_attachment::none;
 
     if (is_capsule_edge) {
-        point.featureB = {capsule_feature::side};
+        point.featureB.emplace(capsule_feature::side);
 
         // Check if the vertices of the capsule are inside the polygon.
         if (polygon.hull.size() > 2) {

@@ -39,7 +39,8 @@ public:
 
     void update() {
         m_queue->consume([&] (any_message &msg) {
-            (maybe_consume_message<MessageTypes>(msg), ...);
+            auto proxy(*this);
+            (proxy.maybe_consume_message<MessageTypes>(msg), ...);
         });
     }
 

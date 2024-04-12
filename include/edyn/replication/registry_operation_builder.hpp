@@ -24,7 +24,7 @@ class registry_operation_builder {
         // Create new data block if current block size would be exceeded.
         if (m_data_index + size > operation.data_blocks.back().size()) {
             auto data = std::vector<uint8_t>{};
-            data.resize(std::min(size * data_block_unit_size, max_block_size));
+            data.resize(std::min<size_t>(size * data_block_unit_size, max_block_size));
             operation.data_blocks.emplace_back(std::move(data));
             m_data_index = 0;
         }

@@ -10,7 +10,7 @@ _Edyn_ is a compiled library.
 
 ## Requirements
 
-A compiler with C++17 support is required, along with `CMake` version 3.12.4 or above.
+A compiler with C++23 support is required, along with `CMake` version 3.12.4 or above.
 
 Dependencies:
 - [EnTT](https://github.com/skypjack/entt) (installed via [Conan](https://conan.io/))

@@ -58,16 +58,16 @@ void collide(const capsule_shape &shA, const capsule_shape &shB,
     point.normal_attachment = contact_normal_attachment::none;
 
     if (num_points == 2 || (s[0] > 0 && s[0] < 1)) {
-        point.featureA = {capsule_feature::side};
+        point.featureA.emplace(capsule_feature::side);
     } else {
-        point.featureA = {capsule_feature::hemisphere};
+        point.featureA.emplace(capsule_feature::hemisphere);
         point.featureA->index = s[0] == 0 ? 0 : 1;
     }
 
     if (num_points == 2 || (t[0] > 0 && t[0] < 1)) {
-        point.featureB = {capsule_feature::side};
+        point.featureB.emplace(capsule_feature::side);
     } else {
-        point.featureB = {capsule_feature::hemisphere};
+        point.featureB.emplace(capsule_feature::hemisphere);
         point.featureB->index = t[0] == 0 ? 0 : 1;
     }
 
